@@ -45,6 +45,10 @@ export default function App() {
         {/* Filter */}
       </View>
       {/* Search area */}
+
+      {/* Categories */}
+      <Categories />
+      {/* Categories */}
     </SafeAreaView>
   );
 }
@@ -54,3 +58,50 @@ const styles = StyleSheet.create({
     backgroundColor: "#F7F0E8",
   },
 });
+
+const Categories = () => {
+  const categories = [
+    {
+      task: "Eating",
+      key: 1,
+      numberOfTasks: "2 Tasks",
+      image: images.eating,
+    },
+    { task: "Study", key: 2, numberOfTasks: "10 Tasks", image: images.study },
+    { task: "Gym", key: 3, numberOfTasks: "2 Tasks", image: images.gym },
+    { task: "Cook", key: 4, numberOfTasks: "1 Tasks", image: images.cook },
+    { task: "Sleep", key: 5, numberOfTasks: "3 Tasks", image: images.sleep },
+    { task: "Walk", key: 6, numberOfTasks: "6 Tasks", image: images.walk },
+    {
+      task: "Video games",
+      key: 7,
+      numberOfTasks: "8 Tasks",
+      image: images.games,
+    },
+    { task: "Movies", key: 8, numberOfTasks: "2 Tasks", image: images.movie },
+  ];
+  return (
+    <View>
+      <Text className="text-xl font-semibold pt-8 px-6">Categories</Text>
+      <FlatList
+        data={categories}
+        renderItem={({ item }) => (
+          <View className="">
+            <View className="bg-white py-3 px-3 mt-3 mb-4 h-48 mx-3 rounded-xl w-48">
+              <Text className="font-semibold">{item.task}</Text>
+              <Text className="text-xs">{item.numberOfTasks}</Text>
+              <View className="pb-2 ml-4">
+                <Image
+                  source={item.image}
+                  className="w-36 h-36"
+                  resizeMode="contain"
+                />
+              </View>
+            </View>
+          </View>
+        )}
+        horizontal
+      />
+    </View>
+  );
+};
