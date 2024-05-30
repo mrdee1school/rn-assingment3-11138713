@@ -49,6 +49,10 @@ export default function App() {
       {/* Categories */}
       <Categories />
       {/* Categories */}
+
+      {/* Ongoing Tasks */}
+      <OngoingTasks />
+      {/* Ongoing Tasks */}
     </SafeAreaView>
   );
 }
@@ -101,6 +105,43 @@ const Categories = () => {
           </View>
         )}
         horizontal
+      />
+    </View>
+  );
+};
+
+const OngoingTasks = () => {
+  const ongoing = [
+    { task: "Watering the plants", key: 1 },
+    { task: "Completing an assignment", key: 2 },
+    { task: "Reading a book", key: 3 },
+    { task: "Writing a paper", key: 4 },
+    { task: "Feeding the cat", key: 5 },
+    { task: "Riding a bike", key: 6 },
+    { task: "Jogging", key: 7 },
+    { task: "Cleaning the room", key: 8 },
+    { task: "Cooking", key: 9 },
+    { task: "Mowing the lawn", key: 10 },
+    { task: "Washing the car", key: 11 },
+    { task: "Washing clothes", key: 12 },
+    { task: "Sleeping", key: 13 },
+    { task: "Giving a speech", key: 14 },
+    { task: "Going to lectures", key: 15 },
+  ];
+  return (
+    <View>
+      <Text className="text-xl font-semibold pt-8 pb-2 px-6">
+        Ongoing Tasks
+      </Text>
+      <FlatList
+        data={ongoing}
+        renderItem={({ item }) => (
+          <View>
+            <View className="bg-white border border-[#E8D1BA] justify-center py-3 px-3 h-[110px] ml-6 mt-2 rounded-xl w-[360px]">
+              <Text className="font-semibold">{item.task}</Text>
+            </View>
+          </View>
+        )}
       />
     </View>
   );
